@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de cámaras fotográficas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="center-title">Tienda de cámaras fotográficas "CRUZ"</h1>
+        <div class="login-section">
+            <button id="login-btn">Iniciar sesión</button>
+            <span id="user-status"></span>
+        </div>
+        <div class="cart-icon" onclick="showCart()">
+            <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Carrito de compras">
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <!-- Menú lateral estático -->
+    <nav id="sideMenu" class="static-menu">
+        <ul>
+            <li><a href="#" onclick="showCategory('inicio')">🏠 Inicio</a></li>
+            <li><a href="#" onclick="showCategory('nikon')">📷 Nikon</a></li>
+            <li><a href="#" onclick="showCategory('canon')">📷 Canon</a></li>
+            <li><a href="#" onclick="showCategory('olympus')">📷 Olympus</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <!-- Contenido dinámico se cargará aquí -->
+    </main>
+
+    <!-- Modal del carrito -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideCart()">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <p>Total: <span id="cart-total">$0.00</span> MXN</p>
+                <button onclick="checkout()">Pagar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de producto -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content product-detail">
+            <span class="close" onclick="hideProductModal()">&times;</span>
+            <div id="product-detail-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal de pago -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content checkout">
+            <span class="close" onclick="hideCheckout()">&times;</span>
+            <h2>Ticket de Compra</h2>
+            <div id="checkout-items"></div>
+            <div class="checkout-total">
+                <p>Total pagado: <span id="checkout-total">$0.00</span> MXN</p>
+                <button onclick="completePurchase()">Finalizar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
